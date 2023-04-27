@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <title>Mikrowelle OOP</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class = "main">
+        <div class ="dishes">
+            <h2>Speisen</h2>
+            <div id="dishList">
+                <div>Name</div>
+                <div>Masse</div>
+                <div>Celsius</div>
+            </div>
+        </div>
+        <div class ="mikrowelle">
+            <h2>Mikrowelle</h2>
+            <div class="mikrowelleStatus">
+                <p>Mikrowelle ist <b id = mikrowelleStatus>offen</b></p>
+                <p>Mikrowelle ist auf <b id = mikrowelleWatt>750</b> Watt eingestellt</p>
+            </div>
+        </div>
+        <h1>Einstellen</h1>
+        <div class = "settings">
+            <label for="wattage">Watt für Mikrowelle <br>
+                <button onclick="mikrowelle.aufmachen()">einstellen</button>
+            </label>
+            <label for="wattage">Watt für Mikrowelle <br>
+                <input type="number" min = "1" required id="wattage" name="wattage" placeholder="750">
+                <button onclick="mikrowelle.leistungEinstellen(document.getElementById('wattage').value)">einstellen</button>
+            </label>
+            <label for="newMicrowave">Mikrowelle einstellen<br>
+                <button onclick="mikrowelle.aufmachen()">Auf</button>
+                <button onclick="mikrowelle.schliessen()">Zu</button>
+            </label>
+            <label for="addDish">Speise hinzufügen<br>
+                <input type="text" id="dishName" name="addDish" placeholder="Name">
+                <input type="number" id="dishWeight" name="addDish" placeholder="Masse">
+                <input type="number" id="dishTemp" name="addDish" placeholder="Temperatur">
+                <button onclick="mikrowelle.speiseHinzufuegen(new Speise(document.getElementById('dishWeight').value, document.getElementById('dishTemp').value, document.getElementById('dishName').value))">Speise hinzufügen</button>
+            </label>
+            <label for="removeDish">Speise entnehmen<br>
+                <input type="text" id="removeDish" name="removeDish" placeholder="Name der Speise">
+                <button onclick="mikrowelle.speiseEntnehmen(document.getElementById('removeDish').value)">Speise entnehmen</button>
+            </label>
+            <label for="turnOn">Mikrowelle einschalten<br>
+                <input type="number" name="turnOn" id="turnOn" min="1" placeholder="Zeit in Sekunden">
+                <button onclick="mikrowelle.erwaermen(document.getElementById('turnOn').value)">Speise erhitzen</button>
+            </label>
+            <label for="eatDish">Speise essen<br>
+                <input type="text" id="eatDish" name="eatDish" placeholder="Name der Speise">
+                <button onclick="SpeiseEssen()">Speise essen</button>
+            </label>
+            <label for="storeDish">Speise aufbewahren <br>
+                <input type="text" id="storeDish" name="storeDish" placeholder="Name der Speise">
+                <button onclick="SpeiseAufbewahren()">Speise aufbewahren</button>
+            </label>
+        </div>
+    </div>
